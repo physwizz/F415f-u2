@@ -642,7 +642,6 @@ int slsi_sm_recovery_service_stop(struct slsi_dev *sdev)
 
 	sdev->wlan_service_on = 0;
 	atomic_set(&sdev->cm_if.cm_if_state, SCSC_WIFI_CM_IF_STATE_STOPPING);
-
 	
 	if (!sdev->service) {
 		atomic_set(&sdev->cm_if.cm_if_state, SCSC_WIFI_CM_IF_STATE_STOPPED);
@@ -903,7 +902,6 @@ int slsi_sm_wlan_service_start(struct slsi_dev *sdev)
 		return -EINVAL;
 	}
 	
-
 	if (!sdev->service) {
 		atomic_set(&sdev->cm_if.cm_if_state, SCSC_WIFI_CM_IF_STATE_STOPPED);
 		SLSI_WARN(sdev, "Service is NULL\n");
@@ -1044,7 +1042,6 @@ int slsi_sm_wlan_service_stop(struct slsi_dev *sdev)
 		  "Recovery -- Status:%d  In_Progress:%d  -- cm_if_state:%d\n",
 		  sdev->recovery_status, recovery_in_progress, cm_if_state);	  
 		  
-
 	if (!sdev->service) {
 		atomic_set(&sdev->cm_if.cm_if_state, SCSC_WIFI_CM_IF_STATE_STOPPED);
 		SLSI_WARN(sdev, "Service is NULL\n");

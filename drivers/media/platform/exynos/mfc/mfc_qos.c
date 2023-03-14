@@ -546,7 +546,7 @@ void mfc_qos_on(struct mfc_ctx *ctx)
 	}
 
 	start_qos_step = pdata->num_qos_steps;
-	if (enc_found && (dev->num_inst == 1))
+	if (enc_found)
 		start_qos_step = pdata->max_qos_steps;
 
 	/* search the suitable qos table */
@@ -608,10 +608,8 @@ void mfc_qos_off(struct mfc_ctx *ctx)
 	}
 	
 
-	if (ON_RES_CHANGE(ctx)) {
-		mutex_unlock(&dev->qos_mutex);
+	if (ON_RES_CHANGE(ctx))
 		return;
-	}
 
 #ifdef CONFIG_EXYNOS_BTS
 	mfc_bw.peak = 0;
@@ -640,7 +638,7 @@ void mfc_qos_off(struct mfc_ctx *ctx)
 		list_del(&ctx->qos_list);
 
 	start_qos_step = pdata->num_qos_steps;
-	if (enc_found && (dev->num_inst == 1))
+	if (enc_found)
 		start_qos_step = pdata->max_qos_steps;
 
 	/* search the suitable qos table */

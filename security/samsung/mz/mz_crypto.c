@@ -7,7 +7,7 @@
  */
 
 #include <linux/module.h>
-#include "mz_internal.h"
+#include <linux/mz.h>
 #include "mz_log.h"
 
 u8 randkey[PRLIMIT][MZ_APP_KEY_SIZE];  //Key
@@ -55,6 +55,7 @@ MzResult register_mz_tee_crypto_driver(struct mz_tee_driver_fns *tee_driver_fns)
 exit:
 	return mz_ret;
 }
+EXPORT_SYMBOL(register_mz_tee_crypto_driver);
 
 void unregister_mz_tee_crypto_driver(void)
 {
@@ -64,6 +65,5 @@ void unregister_mz_tee_crypto_driver(void)
 		is_registered = 0;
 	}
 }
-
-EXPORT_SYMBOL(register_mz_tee_crypto_driver);
 EXPORT_SYMBOL(unregister_mz_tee_crypto_driver);
+

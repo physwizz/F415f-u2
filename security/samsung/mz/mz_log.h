@@ -1,6 +1,8 @@
 #ifndef MZ_LOG_H
 #define MZ_LOG_H
 
+#include <linux/mz.h>
+
 #ifndef LOG_TAG
 #define LOG_TAG "MZ"
 #endif // ifndef LOG_TAG
